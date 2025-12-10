@@ -7,7 +7,7 @@
 [![Transformers](https://img.shields.io/badge/🤗_Transformers-4.35.0-yellow.svg)](https://huggingface.co/transformers/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-## 📊 Project Overview
+## Project Overview
 
 Built a **production-ready NLP data pipeline** processing **24,505 news articles** spanning 13 years (2012-2025) for automated political bias detection. Engineered an end-to-end ETL workflow that transforms raw HTML content into model-ready features, achieving **69.7% classification accuracy** (19.7 percentage points above baseline) using fine-tuned RoBERTa transformers.
 
@@ -23,7 +23,7 @@ Built a **production-ready NLP data pipeline** processing **24,505 news articles
 
 ---
 
-## 🏗️ Data Pipeline Architecture
+## Data Pipeline Architecture
 
 The project implements a **scalable, automated data pipeline** with comprehensive quality validation at each stage:
 
@@ -69,7 +69,7 @@ flowchart LR
 
 ---
 
-## 🧠 Model Architecture
+## Model Architecture
 
 ```
 Input: RoBERTa Embeddings (768-dim)
@@ -78,12 +78,12 @@ Dense Layer (768 → 256) + ReLU + Dropout(0.3)
     ↓
 Dense Layer (256 → 128) + ReLU + Dropout(0.3)
     ↓
-Dense Layer (128 → 64) + ReLU
+Output Layer (128 → 2) + Softmax
     ↓
-Output Layer (64 → 3) + Softmax
-    ↓
-Predictions: [Left, Center, Right]
+Predictions: [Left, Right]
 ```
+
+**Note:** Center articles excluded for binary classification
 
 **Training Configuration:**
 - Optimizer: Adam (lr=0.001)
@@ -94,7 +94,7 @@ Predictions: [Left, Center, Right]
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 **Data Collection & Processing:**
 - `NewsAPI` - Automated news article scraping
@@ -118,7 +118,7 @@ Predictions: [Left, Center, Right]
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -146,7 +146,7 @@ pip install -r requirements.txt
 
 3. **Download the dataset:**
    - Option A: Use provided sample data in `data/raw/news_sample_100.tsv`
-   - Option B: Download full dataset from [Kaggle](https://www.kaggle.com/datasets) and place in `data/raw/`
+   - Option B: Download full dataset from [Kaggle](https://www.kaggle.com/datasets/articoder/news-dataset-for-news-bias-analysis?resource=download) and place in `data/raw/`
 
 ### Usage
 
@@ -188,7 +188,7 @@ embeddings = model(**inputs).last_hidden_state[:, 0, :].detach()
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 news-article-bias-classifier/
@@ -201,12 +201,8 @@ news-article-bias-classifier/
 │   ├── 06_model_experiments.ipynb      # Model selection experiments
 │   └── 07_final_model.ipynb            # Final neural network training
 ├── data/
-│   ├── raw/                            # Original datasets
-│   │   └── news_sample_100.tsv         # Sample data (100 articles)
-│   └── processed/                      # Cleaned and transformed data
-├── results/
-│   ├── plots/                          # Visualization outputs
-│   └── metrics/                        # Performance metrics
+│   └── raw/
+│       └── news_sample_100.tsv         # Sample data (100 articles)
 ├── README.md                           # Project documentation
 ├── requirements.txt                    # Python dependencies
 ├── .gitignore                          # Git ignore rules
@@ -215,23 +211,26 @@ news-article-bias-classifier/
 
 ---
 
-## 📈 Results & Performance
+## Results & Performance
 
 ### Classification Performance by Topic
 
 | Topic | Accuracy | Sample Size |
 |-------|----------|-------------|
 | Coronavirus | 73.8% | 1,242 articles |
-| Elections | 71.2% | 1,845 articles |
-| Politics | 68.5% | 2,232 articles |
-| Economy | 67.3% | 1,156 articles |
+| Elections | 63.3% | 1,845 articles |
+| Politics | 67.0% | 2,232 articles |
+| Economy & Jobs | 65.3% | 1,156 articles |
+| World | 65.8% | 1,161 articles |
 | **Overall** | **69.7%** | **24,505 articles** |
+
+*Binary Left/Right classification
 
 ### Data Quality Metrics
 
 - **Completeness**: 99.5% (only 0.5% missing values)
-- **Deduplication Rate**: 2.3% duplicates removed
-- **Text Length**: Avg 842 words/article (suitable for analysis)
+- **Deduplication**: 2,147 duplicates removed
+- **Text Length**: Avg 76 words/article (suitable for analysis)
 - **Class Balance**: Left-Right spread within 4pp (34.4% vs 34.2%)
 
 ### Key Insights
@@ -243,7 +242,7 @@ news-article-bias-classifier/
 
 ---
 
-## 🔮 Future Improvements
+## Future Improvements
 
 1. **Model Enhancements**
    - Fine-tune RoBERTa on political news corpus for domain adaptation
@@ -267,39 +266,24 @@ news-article-bias-classifier/
 
 ---
 
-## 👨‍💻 Author
+## Author
 
-**Justin Kim**  
-UC Berkeley | Data Science & Machine Learning
-
-- GitHub: [@YOUR-GITHUB-USERNAME](https://github.com/YOUR-GITHUB-USERNAME)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/YOUR-PROFILE)
-- Email: your.email@example.com
+**Ju Ho Kim**  
+DATA 198 (Fall 2025) Final Project | UC Berkeley
 
 ---
 
-## 📄 License
+## Acknowledgments
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🙏 Acknowledgments
-
-- **Dataset**: [News Dataset for News Bias Analysis](https://www.kaggle.com/datasets) from Kaggle
+- **Dataset**: [News Dataset for News Bias Analysis](https://www.kaggle.com/datasets/articoder/news-dataset-for-news-bias-analysis?resource=download) from Kaggle
 - **AllSides Media Bias Ratings**: Bias labels sourced from AllSides.com
-- **UC Berkeley**: Course project for [Course Name], Fall 2024
+- **UC Berkeley**: Course final project for [DATA 198](https://dssdecal.org/fa25/), Fall 2025
 - **Hugging Face**: Pretrained RoBERTa models and Transformers library
 
 ---
 
-## 📮 Contact
+## Contact
 
-For questions, suggestions, or collaboration opportunities:
-- Open an issue in this repository
-- Email: your.email@example.com
+Feel free to reach me out 😁! Thank you!
 
----
-
-**⭐ If you find this project useful, please consider giving it a star!**
-
+- Email: juho_kim@berkeley.edu

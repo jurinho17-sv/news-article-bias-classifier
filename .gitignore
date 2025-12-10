@@ -104,10 +104,6 @@ data/raw/*.csv
 data/raw/*.tsv
 data/raw/*.json
 !data/raw/news_sample_100.tsv
-data/processed/*.csv
-data/processed/*.tsv
-data/processed/*.json
-data/processed/*.pkl
 *.pkl
 
 # Model files
@@ -169,8 +165,4 @@ $RECYCLE.BIN/
 .idea/
 *.iml
 *.iws
-
-# Results (optional - uncomment if you want to track results)
-# results/plots/*.png
-# results/metrics/*.json
 
