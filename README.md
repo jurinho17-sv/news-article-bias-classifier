@@ -2,14 +2,14 @@
 
 > End-to-end NLP pipeline for detecting political bias in news articles using transformer-based deep learning
 
-[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.1.0-red.svg)](https://pytorch.org/)
 [![Transformers](https://img.shields.io/badge/🤗_Transformers-4.35.0-yellow.svg)](https://huggingface.co/transformers/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 ## Project Overview
 
-Built a **production-ready NLP data pipeline** processing **24,505 news articles** spanning 13 years (2012-2025) for automated political bias detection. Engineered an end-to-end ETL workflow that transforms raw HTML content into model-ready features, achieving **69.7% classification accuracy** (19.7 percentage points above baseline) using fine-tuned RoBERTa transformers.
+Built a **NLP data pipeline** processing **24,505 news articles** spanning 13 years (2012-2025) for political bias detection. Engineered an end-to-end ETL workflow that transforms raw HTML content into model-ready features, achieving **69.7% classification accuracy** (19.7 percentage points above baseline) using fine-tuned [RoBERTa transformers](https://huggingface.co/FacebookAI/roberta-base).
 
 ### Key Results
 
@@ -25,7 +25,7 @@ Built a **production-ready NLP data pipeline** processing **24,505 news articles
 
 ## Data Pipeline Architecture
 
-The project implements a **scalable, automated data pipeline** with comprehensive quality validation at each stage:
+The project implements an **automated data pipeline** with comprehensive quality validation:
 
 ```mermaid
 flowchart LR
@@ -55,7 +55,7 @@ flowchart LR
 3. **Data Transformation** (`04_data_transformation.ipynb`)
    - **ETL workflow**: Wide-to-long format conversion (8,478 → 24,505 articles)
    - Schema design: collaborated with ML team to define normalized structure
-   - Data lineage tracking: maintained transformation audit trail
+   - Data lineage documentation: tracked transformation steps through file naming and documentation
 
 4. **Feature Engineering** (`05_feature_extraction.ipynb`)
    - Generated contextual embeddings using pretrained RoBERTa-base model
@@ -104,7 +104,7 @@ Predictions: [Left, Right]
 
 **Machine Learning & NLP:**
 - `PyTorch` - Deep learning framework
-- `Transformers (Hugging Face)` - RoBERTa embeddings
+- `Transformers (Hugging Face)` - [RoBERTa embeddings](https://huggingface.co/FacebookAI/roberta-base)
 - `Scikit-learn` - Baseline models & metrics
 
 **Visualization & Analysis:**
@@ -112,9 +112,8 @@ Predictions: [Left, Right]
 - `tqdm` - Progress tracking
 
 **Development Environment:**
-- `Jupyter Notebook` - Interactive development
 - `Google Colab` - GPU acceleration
-- `Python 3.9+` - Core language
+- `Python 3.10+` - Core language
 
 ---
 
@@ -237,8 +236,8 @@ news-article-bias-classifier/
 
 1. **Topic-Dependent Performance**: Coronavirus articles showed highest accuracy (73.8%), likely due to clearer partisan framing around pandemic policies
 2. **Balanced Dataset**: Nearly equal distribution across Left/Center/Right reduces class imbalance issues
-3. **Production-Ready Pipeline**: Automated ETL with validation enables easy retraining with new data
-4. **Scalability**: Pipeline processes 24K+ articles efficiently; can scale to millions with batch processing
+3. **End-to-End Pipeline**: Complete data processing workflow from raw HTML to model-ready features with 99.5% quality validation
+4. **Efficiency**: Pipeline successfully processed 24,505 articles with modular design that could support larger datasets
 
 ---
 
@@ -254,12 +253,18 @@ news-article-bias-classifier/
    - Add data versioning with DVC (Data Version Control)
    - Create automated data quality dashboard
 
-3. **Feature Engineering**
+3. **Data Lineage Automation**
+   - Automate lineage tracking with log parsing and metadata extraction
+   - Build graph-based visualization of data transformations (source → cleaning → modeling)
+   - Implement automated impact analysis: trace errors back to source data
+   - Replace manual file naming/README documentation with programmatic tracking
+
+4. **Feature Engineering**
    - Extract named entities (politicians, organizations) as additional features
    - Add sentiment analysis scores as covariates
    - Incorporate article metadata (source, author, timestamp)
 
-4. **Deployment**
+5. **Deployment**
    - Package model as REST API with FastAPI
    - Create web interface for interactive bias detection
    - Deploy to cloud (AWS SageMaker / Google Cloud AI Platform)
@@ -269,7 +274,7 @@ news-article-bias-classifier/
 ## Author
 
 **Ju Ho Kim**  
-DATA 198 (Fall 2025) Final Project | UC Berkeley
+DATA 198 (Fall 2025) Final Project @ UC Berkeley
 
 ---
 
@@ -278,7 +283,7 @@ DATA 198 (Fall 2025) Final Project | UC Berkeley
 - **Dataset**: [News Dataset for News Bias Analysis](https://www.kaggle.com/datasets/articoder/news-dataset-for-news-bias-analysis?resource=download) from Kaggle
 - **AllSides Media Bias Ratings**: Bias labels sourced from AllSides.com
 - **UC Berkeley**: Course final project for [DATA 198](https://dssdecal.org/fa25/), Fall 2025
-- **Hugging Face**: Pretrained RoBERTa models and Transformers library
+- **Hugging Face**: Pretrained [RoBERTa models and Transformers library](https://huggingface.co/FacebookAI/roberta-base)
 
 ---
 
