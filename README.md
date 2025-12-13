@@ -1,15 +1,28 @@
 # News Article Political Bias Classifier
 
-> End-to-end NLP pipeline for detecting political bias in news articles using transformer-based deep learning
+> **End-to-end NLP pipeline** for detecting political bias in news articles using transformer-based deep learning
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.1.0-red.svg)](https://pytorch.org/)
-[![Transformers](https://img.shields.io/badge/🤗_Transformers-4.35.0-yellow.svg)](https://huggingface.co/transformers/)
+[![Transformers](https://img.shields.io/badge/🤗_Transformers-4.35.0-yellow.svg)](https://huggingface.co/docs/transformers/index)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-## Project Overview
+## Objectives
 
-Built a **NLP data pipeline** processing **24,505 news articles** spanning 13 years (2012-2025) for political bias detection. Engineered an end-to-end ETL workflow that transforms raw HTML content into model-ready features, achieving **69.7% classification accuracy** (19.7 percentage points above baseline) using fine-tuned [RoBERTa transformers](https://huggingface.co/FacebookAI/roberta-base).
+This project aims to:
+
+1. **Detect political bias in news articles**: Build an automated NLP system to classify news articles as Left-leaning or Right-leaning with high accuracy
+
+2. **Uncover hidden biases**: Help readers identify whether specific news sources or authors consistently lean toward one political side
+
+3. **Promote media literacy**: Provide an objective, data-driven tool for understanding the political slant of internet news sources
+
+## Overview
+
+**End-to-end NLP pipeline** for detecting political bias (Left vs Right) in news articles. Built an end-to-end data pipeline processing **24,505 news articles** spanning 13 years (2012-2025), achieving **69.7% classification accuracy** (19.7pp above baseline) using fine-tuned [RoBERTa transformers](https://huggingface.co/FacebookAI/roberta-base).
+
+**Impact**: Enables objective analysis of news source bias, helping readers 
+identify potentially partisan coverage in an era of increasing media polarization.
 
 ### Key Results
 
