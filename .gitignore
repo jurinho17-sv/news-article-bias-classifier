@@ -104,6 +104,10 @@ data/raw/*.csv
 data/raw/*.tsv
 data/raw/*.json
 !data/raw/news_sample_100.tsv
+data/processed/*.csv
+data/processed/*.tsv
+data/processed/*.json
+data/processed/*.npy
 *.pkl
 
 # Model files
