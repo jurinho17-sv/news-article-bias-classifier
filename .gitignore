@@ -110,7 +110,8 @@ data/processed/*.json
 data/processed/*.npy
 *.pkl
 
-# Model files
+# Model files and checkpoints
+checkpoints/
 *.pth
 *.pt
 *.h5
