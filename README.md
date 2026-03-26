@@ -196,7 +196,7 @@ python scripts/train.py --config configs/config.yaml --smoke_test true
 
 ## Demo
 
-🚀 Live demo coming soon on HuggingFace Spaces
+🚀 [**Live Demo**](https://huggingface.co/spaces/jurinho17-sv/news-article-bias-classifier) — try it on HuggingFace Spaces | [Model weights](https://huggingface.co/jurinho17-sv/news-article-bias-classifier)
 
 ---
 
