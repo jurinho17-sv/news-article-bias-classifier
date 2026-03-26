@@ -171,3 +171,5 @@ $RECYCLE.BIN/
 *.iml
 *.iws
 
+logs/
+wandb/
