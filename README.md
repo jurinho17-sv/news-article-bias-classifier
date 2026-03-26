@@ -27,6 +27,16 @@ Fine-tuned DeBERTa-v3 transformer for three-class political bias detection in ne
 
 ---
 
+## Training Curves
+
+Tracked with W&B across 5 runs (`deberta-v3-base-temporal-v1`). Train loss drops from 1.10 → 0.17 over 6.6K steps; val macro-F1 improves from 0.876 → 0.911 on the 2019 validation set.
+
+| Train Loss | Val Macro-F1 (on 2019 val set) |
+|:---:|:---:|
+| ![Train Loss](assets/train_loss.png) | ![Val Macro-F1](assets/val_macro_f1.png) |
+
+---
+
 ## Dataset
 
 Two corpora, unified under a single label taxonomy (Left / Center / Right) derived from [AllSides](https://www.allsides.com/) media bias ratings:
