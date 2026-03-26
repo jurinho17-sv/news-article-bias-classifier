@@ -23,7 +23,7 @@ model:
     2: Right
 
 training:
-  output_dir: checkpoints/deberta-v3-base-run1
+  output_dir: /home/jovyan/news-article-bias-classifier/checkpoints/deberta-v3-base-run1
   seed: 42
   batch_size: 16
   gradient_accumulation_steps: 2

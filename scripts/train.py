@@ -266,7 +266,7 @@ def main() -> None:
 
     # ── Tokenizer ────────────────────────────────────────────────────────────
     print(f"\nLoading tokenizer : {cfg.model.name}")
-    tokenizer = AutoTokenizer.from_pretrained(cfg.model.name)
+    tokenizer = AutoTokenizer.from_pretrained(cfg.model.name, use_fast=False)
 
     # ── Datasets ─────────────────────────────────────────────────────────────
     print(f"Loading train     : {cfg.data.train_file}")
@@ -302,6 +302,7 @@ def main() -> None:
         label2id=label2id,
         id2label=id2label,
         ignore_mismatched_sizes=True,
+        use_safetensors=True,
     )
 
     # ── TrainingArguments ────────────────────────────────────────────────────
