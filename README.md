@@ -8,6 +8,8 @@ Fine-tuned DeBERTa-v3 transformer for three-class political bias detection in ne
 [![W&B](https://img.shields.io/badge/Weights_%26_Biases-Logging-orange.svg)](https://wandb.ai/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
+**[Model card on HuggingFace →](https://huggingface.co/jurinho17-sv/news-article-bias-classifier)** (Cumulative 300+ downloads! I can't believe it!)
+
 ---
 
 ## Results
@@ -31,9 +33,13 @@ Fine-tuned DeBERTa-v3 transformer for three-class political bias detection in ne
 
 Tracked with W&B across 5 runs (`deberta-v3-base-temporal-v1`). Train loss drops from 1.10 → 0.17 over 6.6K steps; val macro-F1 improves from 0.876 → 0.911 on the 2019 validation set.
 
-| Train Loss | Val Macro-F1 (on 2019 val set) |
-|:---:|:---:|
-| ![Train Loss](assets/train_loss.png) | ![Val Macro-F1](assets/val_macro_f1.png) |
+**Train Loss**
+
+![Train Loss](assets/train_loss.png)
+
+**Val Macro-F1 (on 2019 val set)**
+
+![Val Macro-F1](assets/val_macro_f1.png)
 
 ---
 
@@ -206,7 +212,7 @@ python scripts/train.py --config configs/config.yaml --smoke_test true
 
 ## Demo
 
-🚀 [**Live Demo**](https://huggingface.co/spaces/jurinho17-sv/news-article-bias-classifier) — try it on HuggingFace Spaces | [Model weights](https://huggingface.co/jurinho17-sv/news-article-bias-classifier)
+[**Live Demo**](https://huggingface.co/spaces/jurinho17-sv/news-article-bias-classifier) (on HuggingFace Spaces) | [Model weights](https://huggingface.co/jurinho17-sv/news-article-bias-classifier)
 
 ---
 
