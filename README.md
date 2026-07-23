@@ -1,14 +1,20 @@
 # News Article Political Bias Classifier
 
-Fine-tuned DeBERTa-v3 transformer for three-class political bias detection in news articles.
-
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.3-red.svg)](https://pytorch.org/)
 [![HuggingFace](https://img.shields.io/badge/HuggingFace-Transformers-yellow.svg)](https://huggingface.co/docs/transformers/)
 [![W&B](https://img.shields.io/badge/Weights_%26_Biases-Logging-orange.svg)](https://wandb.ai/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
+**Fine-tuned DeBERTa-v3 transformer for three-class political bias detection in news articles.**
+
 **[Model card on HuggingFace →](https://huggingface.co/jurinho17-sv/news-article-bias-classifier)** (Cumulative 300+ downloads! I can't believe it!)
+
+---
+
+## Overview
+
+Automated three-class (Left / Center / Right) political-bias detection for English news articles, built to generalize to future news under a leak-free temporal evaluation rather than to memorize a fixed news cycle.
 
 ---
 
