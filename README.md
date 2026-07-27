@@ -8,7 +8,7 @@
 
 **Fine-tuned DeBERTa-v3 transformer for three-class political bias detection in news articles.**
 
-**[Model card on HuggingFace →](https://huggingface.co/jurinho17-sv/news-article-bias-classifier)** (Cumulative 300+ downloads! I can't believe it!)
+**[Model card on HuggingFace →](https://huggingface.co/jurinho17-sv/news-article-bias-classifier)** (Cumulative 110+ downloads! I can't believe it!)
 
 ---
 
