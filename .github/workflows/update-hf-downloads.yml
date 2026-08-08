@@ -1,0 +1,35 @@
+name: Update HF download count
+
+on:
+  schedule:
+    # 09:00 UTC daily (02:00 PT). GitHub may delay scheduled runs under load.
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-hf-downloads
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Refresh count in README
+        run: python3 scripts/update_readme_downloads.py
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- README.md; then
+            echo "No change to commit."
+            exit 0
+          fi
+          # Commit as the repo owner so no bot account lands in Contributors.
+          git config user.name "Ju Ho Kim"
+          git config user.email "justin.california777@gmail.com"
+          git commit -m "docs: refresh HF cumulative download count" -- README.md
+          git push
